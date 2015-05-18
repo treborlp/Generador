@@ -4,24 +4,59 @@
 	<title></title>
 </head>
 <body ng-controller="controller">
-	
-	<h1>My Notes</h1>
 
-      <div ng-repeat="item in items">
+
+  <h1>Titulo</h1>
+  <input type="text" ng-model="titulo" placeholder="Insertar Titulo...." autofocus>
+	
+	<h1>Areas</h1>
+      <button ng-click="agregarArea()" >Agregar Area</button>
+      <div ng-repeat="a in areas" ng-cloak>
+        <input type="text" ng-model="a.area" placeholder="Insertar Area..." required>
+      </div>
+
+  <h1>Observaciones</h1>
+      <button ng-click="agregarObs()">Agregar Observacion</button>
+      <div ng-repeat="a in Observaciones" ng-cloak>
+        <textarea ng-model="a.observacion" placeholder="Insertar Observacion..." required  ></textarea>
+      </div>
+
+  <h1>Costos</h1>
+      <button ng-click="agregarCosto()">Agregar Costo</button>
+      <div ng-repeat="a in Costos" ng-cloak>
+        <input type="text" ng-model="a.costo" placeholder="Insertar Costo..." required >
+      </div>
+  <br>
+
+  <h1>Pasos</h1>
+      <button ng-click="agregarPasos()">Agregar Pasos</button>
+      <div ng-repeat="a in Pasos" ng-cloak>
+        <textarea type="text" ng-model="a.pasos" placeholder="Insertar Pasos..." required ></textarea>
+      </div>
+  <br>
+
+  <button ng-click="test()">show</button>
+
+
+  <div ng-repeat="i in infoGeneral">
+    <p>{{i.titulo}}</p>
+    <p>{{i.arrayArea.area}}</p>
+  </div>
+
+
+     <!-- <div ng-repeat="item in items" >
         <input type="text" placeholder="{{item.questionPlaceholder}}" ng-model="item.question">
+
         <input ng-class="{'blockInput': !item.inlineChecked}" type="text" placeholder="enter text..." ng-model="item.text">
         <input type="checkbox" name="check" value="inline" ng-model="item.inlineChecked"> Inline
       </div>
-      <button ng-click="add()">New Item</button>
+      <button ng-click="add()">Agregar</button>
+    -->
 
-      <ul>
-      	<li ng-repeat="i in items">
-      		{{i.text}}
-      	</li>
-      </ul>
-
+ 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
+
 <script src="controlador.js"></script>
 </body>
 </html>
