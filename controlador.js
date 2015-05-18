@@ -2,7 +2,8 @@ angular.module("app", [])
 .controller("controller",function($scope){
 
 	 
-	$scope.infoGeneral=[];
+	$scope.vista=false;
+	$scope.infoGeneral=[{titulo: ""}];
 
 	$scope.areas=[];
 	$scope.Observaciones=[];
@@ -35,7 +36,7 @@ angular.module("app", [])
 	$scope.test=function(){
 		
 		$scope.infoGeneral.push({
-			titulo : $scope.titulo,
+			titulo :  angular.uppercase($scope.titulo),
 			arrayArea: $scope.areas,
 			arrayObs: $scope.Observaciones,
 			arayCostos : $scope.Costos,
@@ -51,6 +52,8 @@ angular.module("app", [])
 		for(var i=0 ; i< longitud; i++){
 			console.log($scope.infoGeneral[0].arrayArea[i].area);
 		}*/
+
+	$scope.vista=true;
 	
 	};
 	/*$scope.items = [];
@@ -69,4 +72,63 @@ angular.module("app", [])
 
           console.log($scope.items);
         };*/
+
+      $scope.generarId=function() {
+      	var titulo=angular.lowercase($scope.infoGeneral[0].titulo);
+      	var i=0;
+      	var up=true;
+      	var codigo="";
+      	 while(i<titulo.length){
+
+      	 	var temp =titulo.charAt(i);
+	      	 	if(!angular.equals(temp," ")) {
+	      	 		if(up){
+	      	 			codigo=codigo+angular.uppercase(temp);
+	      	 			up=false;
+	      	 		}else{
+	      	 			codigo=codigo+temp;
+	      	 		};
+      	 		}else {
+      	 			up = true;
+      	 		};
+      	 
+      	 	i++;
+      	 };
+
+      	console.log(codigo.quitarAcentos());
+      };
+
+
+      String.prototype.quitarAcentos=function(){
+		var __r = 
+		{
+
+			'À':'A','Á':'A','Â':'A','Ã':'A','Ä':'A','Å':'A','Æ':'E',
+
+			'È':'E','É':'E','Ê':'E','Ë':'E',
+
+			'Ì':'I','Í':'I','Î':'I',
+
+			'Ò':'O','Ó':'O','Ô':'O','Ö':'O',
+
+			'Ù':'U','Ú':'U','Û':'U','Ü':'U',
+
+			'Ñ':'N'
+
+		};
+		return this.replace(/[ÀÁÂÃÄÅÆÈÉÊËÌÍÎÒÓÔÖÙÚÛÜÑ]/gi, function(m)
+		{
+
+			var ret = __r[m.toUpperCase()];
+
+			if (m === m.toLowerCase())
+				ret = ret.toLowerCase();
+
+
+			return ret;
+		});
+
+	   };
+
+
 });
