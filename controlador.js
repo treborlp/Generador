@@ -3,8 +3,7 @@ angular.module("app", [])
 
 	 
 	$scope.vista=false;
-	$scope.infoGeneral=[{titulo: ""}];
-
+	$scope.infoGeneral=[];
 	$scope.areas=[];
 	$scope.Observaciones=[];
 	$scope.Costos=[];
@@ -35,8 +34,9 @@ angular.module("app", [])
 
 	$scope.test=function(){
 		
-		$scope.infoGeneral.push({
+		$scope.infoGeneral.push({ 
 			titulo :  angular.uppercase($scope.titulo),
+		    id : generarId($scope.titulo).quitarAcentos(),
 			arrayArea: $scope.areas,
 			arrayObs: $scope.Observaciones,
 			arayCostos : $scope.Costos,
@@ -73,8 +73,8 @@ angular.module("app", [])
           console.log($scope.items);
         };*/
 
-      $scope.generarId=function() {
-      	var titulo=angular.lowercase($scope.infoGeneral[0].titulo);
+      var generarId=function(id) {
+      	var titulo=angular.lowercase(id);
       	var i=0;
       	var up=true;
       	var codigo="";
@@ -95,9 +95,8 @@ angular.module("app", [])
       	 	i++;
       	 };
 
-      	console.log(codigo.quitarAcentos());
+      	return codigo;
       };
-
 
       String.prototype.quitarAcentos=function(){
 		var __r = 
