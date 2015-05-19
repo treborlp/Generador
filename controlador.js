@@ -8,6 +8,7 @@ angular.module("app", [])
 	$scope.Observaciones=[];
 	$scope.Costos=[];
 	$scope.Pasos=[];
+	$scope.Pasos2=[];
 
 	//$scope.test={titulo : "Lugo"};
 
@@ -31,16 +32,24 @@ angular.module("app", [])
 			pasos : "",
 		});
 	};
+	$scope.agregarPasos2=function(){
+		$scope.Pasos2.push({
+			pasos2 : "",
+		});
+	};
 
 	$scope.test=function(){
 		
 		$scope.infoGeneral.push({ 
 			titulo :  angular.uppercase($scope.titulo),
 		    id : generarId($scope.titulo).quitarAcentos(),
+		    formato: $scope.formato,
 			arrayArea: $scope.areas,
 			arrayObs: $scope.Observaciones,
 			arayCostos : $scope.Costos,
-			arrayPasos : $scope.Pasos
+			arrayPasos : $scope.Pasos,
+			arrayPasos2 : $scope.Pasos2
+
 		});
 		console.log($scope.infoGeneral);
 
