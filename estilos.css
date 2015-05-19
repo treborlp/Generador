@@ -24,3 +24,10 @@
 	border-radius: 15px;
 	background: #E8EAF6;
 }
+
+.codigoGenerado{
+	width: 90%;
+	color: orange;
+	background: #000;
+	margin: 0 auto;
+}

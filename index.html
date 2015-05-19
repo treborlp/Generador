@@ -2,61 +2,203 @@
 <html ng-app="app">
 <head>
 	<title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="estilos.css">
 </head>
 <body ng-controller="controller">
 
+  <div class="container">
+      <h1>Titulo</h1>
+    <input type="text" ng-model="titulo" placeholder="Insertar Titulo...." autofocus>
 
-  <h1>Titulo</h1>
-  <input type="text" ng-model="titulo" placeholder="Insertar Titulo...." autofocus>
-	
-	<h1>Areas</h1>
-      <button ng-click="agregarArea()" >Agregar Area</button>
-      <div ng-repeat="a in areas" ng-cloak>
-        <input type="text" ng-model="a.area" placeholder="Insertar Area..." required>
-      </div>
+    <h1>Areas</h1>
+        <button ng-click="agregarArea()" >Agregar Area</button>
+        <div ng-repeat="a in areas" ng-cloak>
+          <input type="text" ng-model="a.area" placeholder="Insertar Area..." required>
+        </div>
+    
+    <h1>Pasos</h1>
+        <button ng-click="agregarPasos()">Agregar Pasos</button>
+        <div ng-repeat="a in Pasos" ng-cloak>
+          <textarea type="text" ng-model="a.pasos" placeholder="Insertar Pasos..." required ></textarea>
+        </div>
 
-  <h1>Observaciones</h1>
-      <button ng-click="agregarObs()">Agregar Observacion</button>
-      <div ng-repeat="a in Observaciones" ng-cloak>
-        <textarea ng-model="a.observacion" placeholder="Insertar Observacion..." required  ></textarea>
-      </div>
+     <h1>Pasos (SOLO SI ES MAS DE 6)</h1>
+        <button ng-click="agregarPasos2()">Agregar Pasos</button>
+        <div ng-repeat="a in Pasos2" ng-cloak>
+          <textarea type="text" ng-model="a.pasos2" placeholder="Insertar Pasos..." required ></textarea>
+        </div>
 
-  <h1>Costos</h1>
-      <button ng-click="agregarCosto()">Agregar Costo</button>
-      <div ng-repeat="a in Costos" ng-cloak>
-        <input type="text" ng-model="a.costo" placeholder="Insertar Costo..." required >
-      </div>
-  <br>
+    <h1>Observaciones</h1>
+        <button ng-click="agregarObs()">Agregar Observacion</button>
+        <div ng-repeat="a in Observaciones" ng-cloak>
+          <textarea ng-model="a.observacion" placeholder="Insertar Observacion..." required  ></textarea>
+        </div>
 
-  <h1>Pasos</h1>
-      <button ng-click="agregarPasos()">Agregar Pasos</button>
-      <div ng-repeat="a in Pasos" ng-cloak>
-        <textarea type="text" ng-model="a.pasos" placeholder="Insertar Pasos..." required ></textarea>
-      </div>
-  <br>
+    <h1>Costos</h1>
+        <button ng-click="agregarCosto()">Agregar Costo</button>
+        <div ng-repeat="a in Costos" ng-cloak>
+          <input type="text" ng-model="a.costo" placeholder="Insertar Costo..." required >
+        </div>
 
-  <button ng-click="test()">show</button>
+    <h1>Formato</h1>
+    <input type="text" ng-model="formato" placeholder="Insertar formato de tramite" autofocus>
+   
 
+    <button ng-click="test()">Generar</button>
 
-  <div ng-repeat="i in infoGeneral">
-    <p>{{i.titulo}}</p>
-    <p>{{i.arrayArea.area}}</p>
   </div>
+  
 
 
-     <!-- <div ng-repeat="item in items" >
-        <input type="text" placeholder="{{item.questionPlaceholder}}" ng-model="item.question">
 
-        <input ng-class="{'blockInput': !item.inlineChecked}" type="text" placeholder="enter text..." ng-model="item.text">
-        <input type="checkbox" name="check" value="inline" ng-model="item.inlineChecked"> Inline
-      </div>
-      <button ng-click="add()">Agregar</button>
-    -->
+<!--INICIO DE CODIGO GENERADO-->
+<div ng-show="vista" ng-repeat="i in infoGeneral" class="codigoGenerado">
+  <code>
+    <pre>
+  &lt;div data-role="page" id="{{i.id}}" style="overflow-y: hidden;"&gt;
+  &lt;div data-role="content"&gt;
+  &lt;div class="content-header"&gt;
+      &lt;div class="bg-banner"&gt;
+          &lt;img src="imagenes/img-banner.png" width="100%" height="100%"&gt;
+        &lt;/div&gt;    
+      &lt;div class="cinta"&gt;
+          &lt;img src="imagenes/img-Cinta.png" width="100%" height="100%"&gt;
+        &lt;div class="content-text"&gt;
+          &lt;p class="titulo_test"&gt;{{i.titulo}}&lt;/p&gt;
+        &lt;/div&gt; 
+      &lt;/div&gt;
+    &lt;/div&gt;
+     
+    
+    &lt;div class="cuerpo"&gt;
+        &lt;img src="imagenes/bg-main.png" width="100%" height="100%"&gt;
+            &lt;div class="header-cuerpo"&gt;
+              &lt;img src="imagenes/img_Pasos_Seguir.png" width="100%" height="100%"&gt;
+                  &lt;div class="content-num-pasos"&gt;
+                    &lt;p&gt; Total de {{i.arrayPasos.length}} pasos &lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;div class="content-areas"&gt;
+                      <div ng-repeat="ii in i.arrayArea">
+                        &lt;p&gt;&lt;span&gt;-&lt;/span&gt;{{ii.area}}&lt;/p&gt;
+                      </div>
+                    &lt;/div&gt;
+            &lt;/div&gt;
+             &lt;div class="content-observaciones"&gt;
+              &lt;img src="imagenes/img-Observaciones_Cuadro.png" width="100%" height="100%"&gt;
+                    &lt;div class="content-obs"&gt;
+                          &lt;strong&gt;Observaciones&lt;/strong&gt;
+                            &lt;ul&gt;
+                                <div ng-repeat="ii in i.arrayObs">
+                                   &lt;li&gt; {{ii.observacion}} &lt;/li&gt;
+                                </div>
+                            &lt;/ul&gt;
+                            &lt;strong&gt;Costo&lt;/strong&gt;
+                            &lt;ul&gt;
+                                <div ng-repeat="ii in i.arayCostos">
+                                   &lt;li&gt; {{ii.costo}} &lt;/li&gt;
+                                </div>
+                            &lt;/ul&gt;
+                      &lt;/div&gt;
+            &lt;/div&gt;
+      
 
+            &lt;div class="content-caminos"&gt;
+        
+              &lt;div class="caminotramite-show" id="{{i.id}}Show"&gt;
+                &lt;img src="imagenes/camino-tramite.png" width="90%" height="30%"&gt;
+                <div ng-repeat="ii in i.arrayPasos">
+                  &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
+                    &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                      &lt;img src="imagenes/paso{{$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%&gt;
+                    &lt;/a&gt;
+                  &lt;/div&gt;
+                  </div>
+
+              &lt;/div&gt;
+                
+              &lt;div class="caminotramite-hidden" id="{{i.id}}Hidden"&gt;
+                  &lt;img src="imagenes/camino-tramite.png" width="90%" height="30%"&gt;
+                  <div ng-repeat="ii in i.arrayPasos2">
+                    &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
+                      &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window"&gt;
+                        &lt;img src="imagenes/paso{{6+$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                  </div>
+
+              &lt;/div&gt;
+
+                &lt;div class="content-botones-sig"&gt;
+                  &lt;div class="boton-siguiente"&gt;
+                      &lt;a href="#" onclick="siguientepaginas('{{i.id}}Show','{{i.id}}Hidden');" &gt;
+                      &lt;img src="imagenes/siguiente.png" width="100%" height="100%" >
+                      &lt;/a&gt;
+
+                    &lt;/div&gt;
+                  &lt;div class="boton-atras" &gt;
+                      &lt;a href="#" onclick="anteriorpaginas('{{i.id}}Show','{{i.id}}Hidden');" &gt;
+                      &lt;img src="imagenes/anterior.png" width="100%" height="100%"&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt; 
+                &lt;/div&gt;
+            
+            &lt;/div&gt;
+  
+            &lt;div class="content-cons-des"&gt;
+                &lt;div class="boton-consulta"&gt;
+                      &lt;a href="#" onclick="enviomail();"&gt;
+                       &lt;img src="imagenes/Consulta_AZUL.png" width="100%" height="100%"&gt;
+                      &lt;/a&gt;
+                    &lt;/div&gt;
+                  &lt;div class="boton-descarga" &gt;
+                      &lt;a href="#" onClick="window.open('{{i.formato}}', '_system', 'location=no');" &gt;
+                          &lt;img src="imagenes/DescarPDF.png" width="100%" height="100%"&gt;
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+             &lt;/div&gt;
+    
+         
+
+         &lt;/div&gt;
  
+ 
+      &lt;/div&gt;
+
+      <div ng-repeat="ii in i.arrayPasos">
+        &lt;div data-role="popup" id="popup{{i.id}}{{$index+1}}" data-overlay-theme="a" data-theme="c" style="max-width:800px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none"  data-position-to="window"&gt;
+
+          &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;Close&lt;/a&gt;
+
+            &lt;img  src="imagenes/07-Popup.png"&gt;
+            &lt;img src="imagenes/paso{{$index+1}}.png" style="position: absolute; top: 1%; right: 1%;"&gt;
+            &lt;p class="parrafoPopup">{{ii.pasos}}&lt;/p&gt;
+        &lt;/div&gt;
+      </div>
+
+      <div ng-repeat="ii in i.arrayPasos2">
+      &lt;div data-role="popup" id="popup{{i.id}}{{6+$index+1}}" data-overlay-theme="a" data-theme="c" style="max-width:800px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none"  data-position-to="window"&gt;
+
+          &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;Close&lt;/a&gt;
+
+            &lt;img  src="imagenes/07-Popup.png"&gt;
+            &lt;img src="imagenes/paso{{6+$index+1}}.png" style="position: absolute; top: 1%; right: 1%;"&gt;
+            &lt;p class="parrafoPopup">{{ii.pasos2}}&lt;/p&gt;
+
+        &lt;/div&gt;
+      </div>
+
+  &lt;/div&gt;
+
+  </pre>
+  </code>
+
+</div>
+
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
-
 <script src="controlador.js"></script>
 </body>
 </html>
