@@ -1,0 +1,26 @@
+.container {
+	margin: 0 auto;
+	width: 90%;
+	background: #26A69A;
+	border-radius: 20px;
+}
+
+.container input {
+	border-radius: 10px ;
+	width: 80%;
+	height: 30px;
+
+}
+.container textarea {
+	border-radius: 10px ;
+	width: 80%;
+	height: 30px;
+
+}
+
+.container button {
+	width: 30%;
+	height: 30px;
+	border-radius: 15px;
+	background: #E8EAF6;
+}
