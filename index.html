@@ -76,7 +76,7 @@
             &lt;div class="header-cuerpo"&gt;
               &lt;img src="imagenes/img_Pasos_Seguir.png" width="100%" height="100%"&gt;
                   &lt;div class="content-num-pasos"&gt;
-                    &lt;p&gt; Total de {{i.arrayPasos.length}} pasos &lt;/p&gt;
+                    &lt;p&gt; Total de {{i.arrayPasos.length + i.arrayPasos2.length}} pasos &lt;/p&gt;
                     &lt;/div&gt;
                     &lt;div class="content-areas"&gt;
                       <div ng-repeat="ii in i.arrayArea">
@@ -110,7 +110,7 @@
                 <div ng-repeat="ii in i.arrayPasos">
                   &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
                     &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
-                      &lt;img src="imagenes/paso{{$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%&gt;
+                      &lt;img src="imagenes/paso{{$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%"&gt;
                     &lt;/a&gt;
                   &lt;/div&gt;
                   </div>
@@ -122,7 +122,7 @@
                   <div ng-repeat="ii in i.arrayPasos2">
                     &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
                       &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window"&gt;
-                        &lt;img src="imagenes/paso{{6+$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%&gt;
+                        &lt;img src="imagenes/paso{{6+$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%"&gt;
                       &lt;/a&gt;
                     &lt;/div&gt;
                   </div>
@@ -166,26 +166,34 @@
       &lt;/div&gt;
 
       <div ng-repeat="ii in i.arrayPasos">
-        &lt;div data-role="popup" id="popup{{i.id}}{{$index+1}}" data-overlay-theme="a" data-theme="c" style="max-width:800px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none"  data-position-to="window"&gt;
 
-          &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;Close&lt;/a&gt;
+      &lt;div data-role="popup" id="popup{{i.id}}{{$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" style="max-width:1200px;"&gt;
+            &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;
+              Close
+            &lt;/a&gt;
+            &lt;div role="main" class="ui-content"&gt;
+              &lt;img  src="imagenes/07-Popup.png" width="100%" height="100%"&gt;
+              &lt;img src="imagenes/paso{{$index+1}}.png" style="position: absolute; top: 5.5%; right: 3%;"&gt;
+              &lt;p class="parrafoPopup">{{ii.pasos}}&lt;/p&gt;
+            &lt;/div&gt;
+      &lt;/div&gt;
 
-            &lt;img  src="imagenes/07-Popup.png"&gt;
-            &lt;img src="imagenes/paso{{$index+1}}.png" style="position: absolute; top: 1%; right: 1%;"&gt;
-            &lt;p class="parrafoPopup">{{ii.pasos}}&lt;/p&gt;
-        &lt;/div&gt;
+
       </div>
 
       <div ng-repeat="ii in i.arrayPasos2">
-      &lt;div data-role="popup" id="popup{{i.id}}{{6+$index+1}}" data-overlay-theme="a" data-theme="c" style="max-width:800px;" class="ui-corner-all ui-popup ui-body-c ui-overlay-shadow" aria-disabled="false" data-disabled="false" data-shadow="true" data-corners="true" data-transition="none"  data-position-to="window"&gt;
 
-          &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;Close&lt;/a&gt;
+      &lt;div data-role="popup" id="popup{{i.id}}{{6+$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" style="max-width:1200px;"&gt;
+            &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;
+              Close
+            &lt;/a&gt;
+            &lt;div role="main" class="ui-content"&gt;
+              &lt;img  src="imagenes/07-Popup.png" width="100%" height="100%"&gt;
+              &lt;img src="imagenes/paso{{6+$index+1}}.png" style="position: absolute; top: 5.5%; right: 3%;"&gt;
+              &lt;p class="parrafoPopup">{{ii.pasos2}}&lt;/p&gt;
+            &lt;/div&gt;
+      &lt;/div&gt;
 
-            &lt;img  src="imagenes/07-Popup.png"&gt;
-            &lt;img src="imagenes/paso{{6+$index+1}}.png" style="position: absolute; top: 1%; right: 1%;"&gt;
-            &lt;p class="parrafoPopup">{{ii.pasos2}}&lt;/p&gt;
-
-        &lt;/div&gt;
       </div>
 
   &lt;/div&gt;
