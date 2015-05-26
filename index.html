@@ -57,6 +57,15 @@
   <code>
     <pre>
   &lt;div data-role="page" id="{{i.id}}" style="overflow-y: hidden;"&gt;
+
+  &lt;div data-role="header" data-theme="b" data-position="fixed" style="max-width:1300px; margin:0 auto;"&gt;
+       &lt;a href="#left-panel11" style="padding:0;box-shadow:none;border:0;background-color:transparent;"&gt;
+        &lt;img src="iconos/menu2.png" alt="menuu"&gt;
+      &lt;/a&gt;
+  &lt;/div&gt;
+
+
+
   &lt;div data-role="content"&gt;
   &lt;div class="content-header"&gt;
       &lt;div class="bg-banner"&gt;
@@ -106,44 +115,69 @@
             &lt;div class="content-caminos"&gt;
         
               &lt;div class="caminotramite-show" id="{{i.id}}Show"&gt;
-                &lt;img src="imagenes/camino-tramite.png" width="90%" height="30%"&gt;
+                
                 <div ng-repeat="ii in i.arrayPasos">
-                  &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
-                    &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
-                      &lt;img src="imagenes/paso{{$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%"&gt;
-                    &lt;/a&gt;
-                  &lt;/div&gt;
-                  </div>
+                &lt;div class="content-paso{{$index+1}}"&gt;
+                &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                    &lt;img src="imagenes/Bloque{{$index+1}}.png"  width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                      &lt;div class="content-boton"&gt;
+                          &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                            &lt;img src="imagenes/paso{{$index+1}}.png"  width="100%" height="100%"&gt;
+                          &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                      &lt;p class="parafoCamino"&gt;Paso {{$index+1}}&lt;/p&gt;
+                      &lt;p class="parafoCamino-click"&gt;Click Aqui&lt;/p&gt;
+                      &lt;/a&gt;
+                &lt;/div&gt;
+                </div>
 
               &lt;/div&gt;
                 
               &lt;div class="caminotramite-hidden" id="{{i.id}}Hidden"&gt;
-                  &lt;img src="imagenes/camino-tramite.png" width="90%" height="30%"&gt;
+                 
                   <div ng-repeat="ii in i.arrayPasos2">
-                    &lt;div class="botoncamino" id="botoncamino{{$index+1}}" data-role="button"&gt;
-                      &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window"&gt;
-                        &lt;img src="imagenes/paso{{6+$index+1}}.png" alt="botoncamino{{$index+1}}" width="100%" height="100%"&gt;
+                   &lt;div class="content-paso{{$index+1}}"&gt;
+                   &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                    &lt;img src="imagenes/Bloque{{$index+1}}.png"  width="100%" height="100%"&gt;
+                   &lt;/a&gt;
+                      &lt;div class="content-boton"&gt;
+                          &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                            &lt;img src="imagenes/paso{{6+$index+1}}.png"  width="100%" height="100%"&gt;
+                          &lt;/a&gt;
+                      &lt;/div&gt;
+                      &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                      &lt;p class="parafoCamino"&gt;Paso {{6+$index+1}}&lt;/p&gt;
+                      &lt;p class="parafoCamino-click"&gt;Click Aqui&lt;/p&gt;
                       &lt;/a&gt;
-                    &lt;/div&gt;
-                  </div>
+                &lt;/div&gt;
+                </div>
 
               &lt;/div&gt;
 
+              <div ng-show="{{i.arrayPasos2.length>0}}">
                 &lt;div class="content-botones-sig"&gt;
+                  
                   &lt;div class="boton-siguiente"&gt;
                       &lt;a href="#" onclick="siguientepaginas('{{i.id}}Show','{{i.id}}Hidden');" &gt;
-                      &lt;img src="imagenes/siguiente.png" width="100%" height="100%" >
+                      &lt;img src="imagenes/siguiente.png" width="100%" height="100%" &gt;
                       &lt;/a&gt;
-
                     &lt;/div&gt;
+
                   &lt;div class="boton-atras" &gt;
                       &lt;a href="#" onclick="anteriorpaginas('{{i.id}}Show','{{i.id}}Hidden');" &gt;
                       &lt;img src="imagenes/anterior.png" width="100%" height="100%"&gt;
                       &lt;/a&gt;
-                    &lt;/div&gt; 
+                    &lt;/div&gt;
+
                 &lt;/div&gt;
-            
+
+              </div>
+
             &lt;/div&gt;
+
+            
   
             &lt;div class="content-cons-des"&gt;
                 &lt;div class="boton-consulta"&gt;
@@ -158,11 +192,41 @@
                     &lt;/div&gt;
              &lt;/div&gt;
     
-         
-
+        
          &lt;/div&gt;
  
  
+      &lt;/div&gt;
+
+      &lt;div data-role="panel" id="left-panel11" data-theme="c" data-display="overlay" data-position-fixed="true"&gt;
+          &lt;ul id="list" data-role="listview"&gt;
+                &lt;li&gt;
+                  &lt;a href="#page"&gt;
+                    &lt;img src="imagenes/fondomenu.png" width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+
+                &lt;li>
+                  &lt;a href="#page" data-iconpos="notext"&gt;
+                    &lt;img src="imagenes/menu_emergente-02.png" width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="#page4" data-iconpos="notext"&gt;
+                    &lt;img src="imagenes/menu_emergente-03.png" width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li&gt;
+                  &lt;a href="#" onclick="enviomail();" data-iconpos="notext"&gt;
+                    &lt;img src="imagenes/menu_emergente-05.png" width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+                 &lt;li&gt;
+                  &lt;a onclick="showConfirm(); return false;" href="#" data-rel="close" data-iconpos="notext"&gt;
+                    &lt;img src="imagenes/menu_emergente-06.png" width="100%" height="100%"&gt;
+                  &lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt; 
       &lt;/div&gt;
 
       <div ng-repeat="ii in i.arrayPasos">
@@ -175,6 +239,9 @@
               &lt;img  src="imagenes/07-Popup.png" width="100%" height="100%"&gt;
               &lt;img src="imagenes/paso{{$index+1}}.png" style="position: absolute; top: 5.5%; right: 3%;"&gt;
               &lt;p class="parrafoPopup">{{ii.pasos}}&lt;/p&gt;
+              <div ng-show="{{i.arrayPasos.length==($index+1) && i.arrayPasos2.length==0}}">
+                &lt;p class="parrafoFinPasos"&gt;ESTE ES EL FINAL DEL PROCEDIMIENTO&lt;/p&gt;
+              </div>
             &lt;/div&gt;
       &lt;/div&gt;
 
@@ -191,6 +258,9 @@
               &lt;img  src="imagenes/07-Popup.png" width="100%" height="100%"&gt;
               &lt;img src="imagenes/paso{{6+$index+1}}.png" style="position: absolute; top: 5.5%; right: 3%;"&gt;
               &lt;p class="parrafoPopup">{{ii.pasos2}}&lt;/p&gt;
+              <div ng-show="{{i.arrayPasos2.length==($index+1)}}">
+                &lt;p class="parrafoFinPasos"&gt;ESTE ES EL FINAL DEL PROCEDIMIENTO&lt;/p&gt;
+              </div>
             &lt;/div&gt;
       &lt;/div&gt;
 
