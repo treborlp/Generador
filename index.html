@@ -41,10 +41,14 @@
           <input type="text" ng-model="a.costo" placeholder="Insertar Costo..." required >
         </div>
 
-    <h1>Formato</h1>
-    <input type="text" ng-model="formato" placeholder="Insertar formato de tramite" autofocus>
-   
-
+    <h1>Formatos</h1>
+        <button ng-click="agregarUrl()">Agregar Formatos</button>
+        <div ng-repeat="a in Url" ng-cloak>
+          <input type="text" ng-model="a.url" placeholder="Insertar Formato..." required >
+        </div>
+        <br>
+        <br>
+        <br>
     <button ng-click="test()">Generar</button>
 
   </div>
@@ -118,15 +122,15 @@
                 
                 <div ng-repeat="ii in i.arrayPasos">
                 &lt;div class="content-paso{{$index+1}}"&gt;
-                &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                     &lt;img src="imagenes/Bloque{{$index+1}}.png"  width="100%" height="100%"&gt;
                   &lt;/a&gt;
                       &lt;div class="content-boton"&gt;
-                          &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                          &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                             &lt;img src="imagenes/paso{{$index+1}}.png"  width="100%" height="100%"&gt;
                           &lt;/a&gt;
                       &lt;/div&gt;
-                      &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                      &lt;a href="#popup{{i.id}}{{$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                       &lt;p class="parafoCamino"&gt;Paso {{$index+1}}&lt;/p&gt;
                       &lt;p class="parafoCamino-click"&gt;Click Aqui&lt;/p&gt;
                       &lt;/a&gt;
@@ -139,15 +143,15 @@
                  
                   <div ng-repeat="ii in i.arrayPasos2">
                    &lt;div class="content-paso{{$index+1}}"&gt;
-                   &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                   &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                     &lt;img src="imagenes/Bloque{{$index+1}}.png"  width="100%" height="100%"&gt;
                    &lt;/a&gt;
                       &lt;div class="content-boton"&gt;
-                          &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                          &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                             &lt;img src="imagenes/paso{{6+$index+1}}.png"  width="100%" height="100%"&gt;
                           &lt;/a&gt;
                       &lt;/div&gt;
-                      &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" &gt;
+                      &lt;a href="#popup{{i.id}}{{6+$index+1}}" data-rel="popup" data-position-to="window" onclick="ocultarGif();" &gt;
                       &lt;p class="parafoCamino"&gt;Paso {{6+$index+1}}&lt;/p&gt;
                       &lt;p class="parafoCamino-click"&gt;Click Aqui&lt;/p&gt;
                       &lt;/a&gt;
@@ -157,6 +161,7 @@
               &lt;/div&gt;
 
               <div ng-show="{{i.arrayPasos2.length>0}}">
+                
                 &lt;div class="content-botones-sig"&gt;
                   
                   &lt;div class="boton-siguiente"&gt;
@@ -177,20 +182,34 @@
 
             &lt;/div&gt;
 
-            
-  
+          &lt;div class="gif-image"&gt;
+            &lt;img src="imagenes/pointer.gif" width="100%" height="100%"&gt;
+          &lt;/div&gt;
+
+           &lt;div class="text-pointer"&gt;
+              &lt;p&gt;Toque&lt;/p&gt;
+              &lt;p&gt;Aquí&lt;/p&gt;
+           &lt;/div&gt;
+
             &lt;div class="content-cons-des"&gt;
+
                 &lt;div class="boton-consulta"&gt;
                       &lt;a href="#" onclick="enviomail();"&gt;
                        &lt;img src="imagenes/Consulta_AZUL.png" width="100%" height="100%"&gt;
                       &lt;/a&gt;
-                    &lt;/div&gt;
-                  &lt;div class="boton-descarga" &gt;
-                      &lt;a href="#" onClick="window.open('{{i.formato}}', '_system', 'location=no');" &gt;
+                 &lt;/div&gt;
+
+                  &lt;div class="boton-descarga"&gt;
+                      &lt;a href="#" onClick="
+                      <div ng-repeat="ii in i.arrayUrls">
+                         window.open('{{ii.url}}', '_system', 'location=no');
+                      </div>
+                      "&gt;
                           &lt;img src="imagenes/DescarPDF.png" width="100%" height="100%"&gt;
-                        &lt;/a&gt;
+                      &lt;/a&gt;
                     &lt;/div&gt;
-             &lt;/div&gt;
+
+                &lt;/div&gt;
     
         
          &lt;/div&gt;
@@ -231,7 +250,7 @@
 
       <div ng-repeat="ii in i.arrayPasos">
 
-      &lt;div data-role="popup" id="popup{{i.id}}{{$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" style="max-width:1200px;"&gt;
+      &lt;div data-role="popup" id="popup{{i.id}}{{$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" class="displayPopup"&gt;
             &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;
               Close
             &lt;/a&gt;
@@ -250,7 +269,7 @@
 
       <div ng-repeat="ii in i.arrayPasos2">
 
-      &lt;div data-role="popup" id="popup{{i.id}}{{6+$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" style="max-width:1200px;"&gt;
+      &lt;div data-role="popup" id="popup{{i.id}}{{6+$index+1}}" data-overlay-theme="b" data-theme="b" data-dismissible="true" class="displayPopup"&gt;
             &lt;a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right"&gt;
               Close
             &lt;/a&gt;
